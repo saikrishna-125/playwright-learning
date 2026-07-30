@@ -1,0 +1,5 @@
+confirm
+Hello , Are you sure you want to confirm?
+alert
+Hello , share this practice page and share your knowledge
+13,522

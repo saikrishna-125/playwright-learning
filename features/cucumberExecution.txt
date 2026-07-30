@@ -1,0 +1,10 @@
+npx cucumber-js --exit
+
+npx cucumber-js --tags "@Regression" --exit
+
+
+npx cucumber-js features/shopping.feature --parallel 2 --exit
+
+npx cucumber-js features/shopping.feature --parallel 2 --format html:report.html 
+
+

@@ -1,0 +1,20 @@
+[
+  {
+    "username": "testuserlast@gmail.com",
+    "password": "T@st12345",
+    "productName": "iphone 13 pro",
+    "country": "united states"
+  },
+  {
+    "username": "testuserlast@gmail.com",
+    "password": "T@st12345",
+    "productName": "adidas original",
+    "country": "india"
+  },
+  {
+    "username": "testuserlast@gmail.com",
+    "password": "T@st12345",
+    "productName": "zara coat 3",
+    "country": "australia"
+  }
+]

@@ -1,0 +1,1 @@
+200 { success: true, message: '4 booking(s) cleared' }
