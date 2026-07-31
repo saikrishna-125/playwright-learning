@@ -38,4 +38,4 @@ jobs:
         env:
           PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
         run: |
-          npx playwright test --grep APP --config=playwright.service.config.ts --workers=5
+          npx playwright test --config=playwright.service.config.ts --workers=20
