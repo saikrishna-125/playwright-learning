@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 
+test.describe.configure({ mode: "serial" });
+
 test.beforeEach(async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 });
@@ -75,13 +77,16 @@ test("Purchase Workflow Validation", async ({ page }) => {
 
   const product = products.filter({ hasText: productName });
   const addToCartButton = product.getByRole("button", { name: /Add to Cart/i });
-  await addToCartButton.click();
 
   const cartButton = page
     .getByRole("button", { name: "Cart" })
     .filter({ hasNotText: /Add to/i });
   const cartLabel = cartButton.locator("label");
-  await expect(cartLabel).toHaveText(/^1$/);
+  const initialCartCount = Number((await cartLabel.textContent()) ?? "0");
+
+  await addToCartButton.click();
+
+  await expect(cartLabel).toHaveText(String(initialCartCount + 1));
   await cartButton.waitFor();
   await cartButton.click();
 

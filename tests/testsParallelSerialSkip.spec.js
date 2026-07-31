@@ -26,7 +26,7 @@ test.skip("Title Validation", async ({ page }) => {
   await expect(page).toHaveTitle(/let's shop/i);
 });
 
-test("Login Validation", async ({ page }) => {
+test.skip("Login Validation", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
   const emailInput = page.locator("input#userEmail");

@@ -1,31 +1,35 @@
 import { test, expect } from "@playwright/test";
 
-let webContext;
+// Shopping workflow covered in E2EAutomation.spec.js to avoid shared-account conflicts.
 
-test.beforeAll(async ({ browser }) => {
-  const context = await browser.newContext();
+test.describe.skip("UsingSessionStorage", () => {
+  let webContext;
 
-  const page = await context.newPage();
+  test.beforeAll(async ({ browser }) => {
+    const context = await browser.newContext();
 
-  await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
+    const page = await context.newPage();
 
-  const emailInput = page.getByPlaceholder("email@example.com");
-  const passwordInput = page.getByPlaceholder("Enter your passsword");
-  const loginBtn = page.getByRole("button", { name: "Login" });
+    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
-  await emailInput.fill("testuserlast@gmail.com");
-  await passwordInput.fill("T@st12345");
+    const emailInput = page.getByPlaceholder("email@example.com");
+    const passwordInput = page.getByPlaceholder("Enter your passsword");
+    const loginBtn = page.getByRole("button", { name: "Login" });
 
-  await loginBtn.click();
+    await emailInput.fill("testuserlast@gmail.com");
+    await passwordInput.fill("T@st12345");
 
-  await page.locator("button[routerlink*='myorders']").waitFor();
+    await loginBtn.click();
 
-  await context.storageState({ path: "state.json" });
+    await page.locator("button[routerlink*='myorders']").waitFor();
 
-  webContext = await browser.newContext({ storageState: "state.json" });
-});
+    await context.storageState({ path: "state.json" });
 
-test("@APP shopping Workflow Validation", async () => {
-  const page = await webContext.newPage();
-  await page.goto("https://rahulshettyacademy.com/client/#/dashboard/dash");
+    webContext = await browser.newContext({ storageState: "state.json" });
+  });
+
+  test("@APP shopping Workflow Validation", async () => {
+    const page = await webContext.newPage();
+    await page.goto("https://rahulshettyacademy.com/client/#/dashboard/dash");
+  });
 });

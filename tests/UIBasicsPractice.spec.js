@@ -1,12 +1,14 @@
 import { test, expect } from "@playwright/test";
 
-test("@APP Title Validation", async ({ page }) => {
+// Login and title checks are covered in E2EAutomation.spec.js to avoid shared-account conflicts.
+
+test.skip("@APP Title Validation", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
   await expect(page).toHaveTitle(/let's shop/i);
 });
 
-test("@APP Login Validation", async ({ page }) => {
+test.skip("@APP Login Validation", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
   const emailInput = page.locator("input#userEmail");

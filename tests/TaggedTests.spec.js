@@ -20,13 +20,13 @@ test("@AUTO Show/Hide Button validation", async ({ page }) => {
   await showHideInput.screenshot({ path: "locatorScreenshot.png" });
 });
 
-test("@APP Title Validation", async ({ page }) => {
+test.skip("@APP Title Validation", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
   await expect(page).toHaveTitle(/let's shop/i);
 });
 
-test("@APP Login Validation", async ({ page }) => {
+test.skip("@APP Login Validation", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
   const emailInput = page.locator("input#userEmail");

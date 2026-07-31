@@ -42,7 +42,13 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "clear-bookings",
+      testMatch: /ClearBookings\.spec\.js/,
+    },
+    {
       name: "chromium",
+      dependencies: ["clear-bookings"],
+      testIgnore: /ClearBookings\.spec\.js/,
       use: { ...devices["Desktop Chrome"] },
     },
 

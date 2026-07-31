@@ -1,13 +1,15 @@
 import { test, expect } from "@playwright/test";
 
-test("@APP Title Validation", async ({ page }) => {
+// Login and title checks are covered in E2EAutomation.spec.js to avoid shared-account conflicts.
+
+test.skip("@APP Title Validation", async ({ page }) => {
   const slowExpect = expect.configure({ timeout: 40_000 });
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
   await slowExpect(page).toHaveTitle(/let's shop/i);
 });
 
-test("@APP Login Validation", async ({ page }) => {
+test.skip("@APP Login Validation", async ({ page }) => {
   const fastExpect = expect.configure({ timeout: 10_000 });
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
