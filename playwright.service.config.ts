@@ -13,6 +13,6 @@ export default defineConfig(
     credential: new DefaultAzureCredential(),
   }),
   {
-    reporter: [["html"], ["@azure/playwright/reporter"]],
+    reporter: [["list"], ["html"], ["@azure/playwright/reporter"]],
   },
 );
