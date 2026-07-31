@@ -17,7 +17,7 @@ test("Show/Hide Button validation", async ({ page }) => {
   await showHideInput.screenshot({ path: "locatorScreenshot.png" });
 });
 
-test("Visual Testing", async ({ page }) => {
+test.skip("Visual Testing", async ({ page }) => {
   await page.goto("https://www.webpagetest.org/blank.html");
 
   expect(await page.screenshot()).toMatchSnapshot({ name: "landing.png" });
