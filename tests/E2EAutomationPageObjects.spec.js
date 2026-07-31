@@ -1,7 +1,9 @@
 import { test, expect } from "@playwright/test";
 import PageObjectManager from "../pageobjects/PageObjectManager";
 
-test("@APP E2E shopping workflow validation", async ({ page }) => {
+// Shopping workflow covered in E2EAutomation.spec.js to avoid shared-account conflicts.
+
+test.skip("@APP E2E shopping workflow validation", async ({ page }) => {
   const username = "testuserlast@gmail.com";
   const password = "T@st12345";
   const productName = "adidas original";

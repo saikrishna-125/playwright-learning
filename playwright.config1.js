@@ -51,7 +51,13 @@ export default defineConfig({
 
   projects: [
     {
+      name: "clear-bookings",
+      testMatch: /ClearBookings\.spec\.js/,
+    },
+    {
       name: "chromium",
+      dependencies: ["clear-bookings"],
+      testIgnore: /ClearBookings\.spec\.js/,
       use: {
         ...devices["Desktop Chrome"],
         trace: "retain-on-failure",
@@ -71,6 +77,8 @@ export default defineConfig({
 
     {
       name: "firefox",
+      dependencies: ["clear-bookings"],
+      testIgnore: /ClearBookings\.spec\.js/,
       use: {
         ...devices["Desktop Firefox"],
         trace: "retain-on-failure",
@@ -80,6 +88,8 @@ export default defineConfig({
     },
     {
       name: "iphone",
+      dependencies: ["clear-bookings"],
+      testIgnore: /ClearBookings\.spec\.js/,
       use: {
         ...devices["iPhone 13"],
         trace: "retain-on-failure",
@@ -89,6 +99,8 @@ export default defineConfig({
     },
     {
       name: "pixel",
+      dependencies: ["clear-bookings"],
+      testIgnore: /ClearBookings\.spec\.js/,
       use: {
         ...devices["Pixel 5"],
         trace: "retain-on-failure",
